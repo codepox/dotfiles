@@ -90,7 +90,7 @@ fi
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -la'
-alias l='ls -CF'
+alias l='ls -C'
 alias cd..='cd ..'
 alias cd...='cd ../..'
 alias cd....='cd ../../..'
@@ -123,13 +123,14 @@ fi
 #if which tmux >/dev/null 2>&1; then
 #    test -z ${TMUX} && (tmux attach || tmux new-session)
 #fi
-if [[ -z "$TMUX" ]] ;then
-    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )"
-    if [[ -z "$ID" ]] ;then
-	tmux new-session -d 'picocom -t /dev/ttyUSB0'
-	tmux split-window -v 'picocom -t /dev/ttyUSB1'
-	tmux -2 attach-session -d
-    else
-	tmux attach-session -t "$ID"
-    fi
-fi
+#if [[ -z "$TMUX" ]] ;then
+#    ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )"
+#    if [[ -z "$ID" ]] ;then
+#	tmux new-session -d 'picocom -t /dev/ttyUSB0'
+#	tmux split-window -v 'picocom -t /dev/ttyUSB1'
+#	tmux -2 attach-session -d
+#    else
+#	tmux attach-session -t "$ID"
+#    fi
+#fi
+
